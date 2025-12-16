@@ -7,10 +7,11 @@
     <li><a href="addCateg_c.php">Ajout Categorie</a></li>
     
     <?php
-    for($i=0;$i<count($tableauMenu);$i++){
-    echo"<li><a href='listeProduit_c.php?filtre=".$tableauMenu[$i][1]."'>".$tableauMenu[$i][2]."</a></li>";
+    for($i=0;$i<count($tableauMenu);$i++){//0=id, 1=lien, 2=nom//
+    echo"<li><a href='".$tableauMenu[$i][1]."?".$tableauMenu[$i][3]."'>".$tableauMenu[$i][2]."</a></li>";
     }?>
 </ul>
 </nav>
 
+<!--listeProduit_c.php?filtre=-->
 
