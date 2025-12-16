@@ -8,10 +8,11 @@
 </head>
 
 <body>
-    <h1>Ajouter Lien</h1>
     <?php include('menu_c.php') ?>
+    <main>
+    <h1>Ajouter Lien</h1>
     <form method='post' action='addLien_c.php?mod=w'>
-
+    <fieldset>
         <div>
             <label>Nom</label>
             <input type='text' id='name' name='name' required />
@@ -20,10 +21,24 @@
         <div>
             <label>Lien</label>
             <input type='text' id='lien' name='lien' required />
-            <button type='submit'>Ajouter Produit</button>
         </div>
 
+
+        <div>
+            <label>Filtre</label>
+            <input type='text' id='filtre' name='filtre' required />
+        </div>
+
+        <div>
+            <label>Ordre</label>
+            <input type='number' id='ordre' name='ordre' required />
+        </div>
+        <div>
+            <button type='submit'>Ajouter Lien</button>
+        </div>
+    </fieldset>    
     </form>
+    </main>
 </body>
 
 </html>
