@@ -13,11 +13,14 @@
         <main>
             <h1>Liste Produit</h1>
             <ul>
-                <li>DVD1</li>
-                <li>DVD2</li>
-                <li>DVD3</li>
-                <li>DVD4</li>
-                <li>DVD5</li>
+                <?php
+                for($i=0;$i<count($tableauProduit);$i++){
+                echo"<li><p>Nom : " . $tableauProduit[$i][1] ."<p>";
+                echo"<p>Prix : " . $tableauProduit[$i][2] ."€<p></li>";
+                }
+
+
+            ?>
             </ul>
         </main>
     </div>
