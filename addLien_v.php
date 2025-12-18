@@ -33,6 +33,10 @@
             <label>Ordre</label>
             <input type='number' id='ordre' name='ordre' required />
         </div>
+         <div>
+            <label>Admin 1 or 0</label>
+            <input type='number' id='admin' name='admin' required />
+        </div>
         <div>
             <button type='submit'>Ajouter Lien</button>
         </div>
