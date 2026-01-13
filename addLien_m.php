@@ -1,6 +1,6 @@
 <?php
     if(isset($_GET['mod'])){ //si envoie formulaire
-    include('connexion.php'); //connexion base donnée
+    include('db_connection.php'); //connexion base donnée
     $sql="Insert Into menu (lien,nom,filtre, ordre, adminOnly) values (:lien,:nom, :filtre, :ordre, :admin)";
     $sql = $bd->prepare($sql);
 
