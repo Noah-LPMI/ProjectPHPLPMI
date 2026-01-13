@@ -1,8 +1,9 @@
 <?php
 if(isset($_GET['mod'])){
 include('db_connection.php'); //connexion bdd
-//requête sql 
-$sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND password = '".$_POST['mdp']."'";
+//requête sql
+$passhash = password_hash($_POST['mdp'], PASSWORD_DEFAULT); 
+$sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND password = '".$passhash."'";
     $requeteid = $bd -> prepare ($sqlid);
     $requeteid->execute();
     $donneesid= $requeteid->fetch(PDO::FETCH_ASSOC); 
@@ -15,4 +16,6 @@ $sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND passwo
     }else{
         echo "Utilisateur introuvable";
     }
+
+
 }
