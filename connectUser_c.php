@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('connectUser_m.php');
 include('connectUser_v.php');
 if(isset($_GET['mod'])){ //si connecté -> variable en session
