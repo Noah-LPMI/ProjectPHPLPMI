@@ -1,5 +1,5 @@
 <?php
-include('connexion.php');
+include('db_connection.php');
 $sql = "SELECT * FROM menu ORDER BY ordre"; //récup info du Menu
         $sql = $bd->prepare($sql);
         $sql->execute();
