@@ -2,7 +2,7 @@
 if(isset($_GET['mod'])){
 include('db_connection.php'); //connexion bdd
 //requête sql 
-$sqlid = "SELECT * FROM user WHERE username = '".$_POST['pseudo']."' AND password = '".$_POST['mdp']."'";
+$sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND password = '".$_POST['mdp']."'";
     $requeteid = $bd -> prepare ($sqlid);
     $requeteid->execute();
     $donneesid= $requeteid->fetch(PDO::FETCH_ASSOC); 
