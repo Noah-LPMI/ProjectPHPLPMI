@@ -1,6 +1,6 @@
 <?php
-include('connexion.php'); //connexion bdd
-$sql = "SELECT * FROM product where 1"; //récup info du produit
+include('db_connection.php'); //connexion bdd
+$sql = "SELECT * FROM products where 1"; //récup info du produit
         if(isset($_GET['categ'])){
             $sql=$sql+" and categorie = '".$_GET['categ']."'";
         }

@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['mod'])){
-include('connexion.php'); //connexion bdd
+include('db_connection.php'); //connexion bdd
 //requête sql 
 $sqlid = "SELECT * FROM user WHERE username = '".$_POST['pseudo']."' AND password = '".$_POST['mdp']."'";
     $requeteid = $bd -> prepare ($sqlid);
