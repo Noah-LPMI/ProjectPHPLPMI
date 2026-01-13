@@ -8,16 +8,17 @@
     <!--<li><a href="addCateg_c.php">Ajout Categorie</a></li>-->
     
     <?php
-    for($i=0;$i<count($tableauMenu);$i++){//0=id, 1=lien, 2=nom//
     if(isset($_SESSION['profil'])){ //test si connecté
+    echo"<li><a href='listeProduit_c.php?deco=1'>deconnexion</a></li>";
+    for($i=0;$i<count($tableauMenu);$i++){//0=id, 1=lien, 2=nom//
     if($_SESSION['profil']!='admin' && $tableauMenu[$i][4]==1){ //si pas user=pas admin et liens (adminOnly) = 1
-        echo"pbm vous êtes pas admin";
+
     }else{
     echo"<li><a href='".$tableauMenu[$i][1]."?".$tableauMenu[$i][3]."'>".$tableauMenu[$i][2]."</a></li>"; //sinon afficher le liens
     }
-    }else{ //si pas connecté affiche tout
+    }}else{ //si pas connecté affiche tout
     //echo"<li><a href='".$tableauMenu[$i][1]."?".$tableauMenu[$i][3]."'>".$tableauMenu[$i][2]."</a></li>";   
-    }}
+    }
     ?>
 </ul>
 </nav>
