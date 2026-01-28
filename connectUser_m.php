@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['mod'])){
-include('db_connection.php'); //connexion bdd
+include(__DIR__ . '/data/db_connection.php'); //connexion bdd
 //requête sql
 $passhash = password_hash($_POST['mdp'], PASSWORD_DEFAULT); 
 $sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND password = '".$passhash."'";
@@ -17,5 +17,12 @@ $sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND passwo
         echo "Utilisateur introuvable";
     }
 
+    /*****
+     * Iris à Noah
+     * Quand la connexion est réussie, ajouter les variables de session suivantes :
+     * $_SESSION["user_id"]
+     * $_SESSION["username"]
+     * $_SESSION["user_status"]
+     *****/
 
 }

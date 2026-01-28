@@ -1,6 +1,7 @@
 <?php
+
     if(isset($_GET['mod'])){ //si envoie formulaire
-    include('db_connection.php'); //connexion base donnée
+    include(__DIR__ . '/../../data/db_connection.php'); //connexion base donnée
     $sql="Insert Into nav_bar (links,label,filter, `order`, adminOnly) values (:lien,:nom, :filtre, :ordre, :admin)";
     $sql = $bd->prepare($sql);
 

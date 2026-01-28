@@ -1,5 +1,5 @@
 <?php
-include('db_connection.php');
+include(__DIR__ . '/../data/db_connection.php');
 $sql = "SELECT * FROM nav_bar ORDER BY `order`"; //récup info du Menu
         $sql = $bd->prepare($sql);
         $sql->execute();
