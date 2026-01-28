@@ -1,5 +1,5 @@
 <?php
-include('db_connection.php'); //connexion bdd
+include(__DIR__ . '/data/db_connection.php'); //connexion bdd
 $sql = "SELECT * FROM products where 1"; //récup info du produit
         if(isset($_GET['categ'])){
             $sql=$sql+" and categorie = '".$_GET['categ']."'";

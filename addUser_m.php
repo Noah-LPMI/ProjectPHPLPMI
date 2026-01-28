@@ -2,7 +2,7 @@
 
 <?php
     
-    include ('db_connection.php');
+    include(__DIR__ . '/data/db_connection.php');
 
     /* =========================
         GESTION DU MODE
@@ -63,7 +63,9 @@
 
                         $stmt->execute();
 
-                        $confirmMessage="Utilisateur enregistré avec succès !";
+                        $confirmMessage="Votre compte a été créé !";
+                        header("Location: index.php"); 
+                        exit;
 
                 } else {
                     $errorMessage = "Compléter tous les champs du formulaire";
