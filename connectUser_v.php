@@ -21,7 +21,7 @@
 
                     <div>
                         <label>Mot de passe</label>
-                        <input type='text' id='mdp' name='mdp' required />
+                        <input type='password' id='mdp' name='mdp' required />
                     </div>
                     <div>
                         <button type='submit'>Connexion</button>
