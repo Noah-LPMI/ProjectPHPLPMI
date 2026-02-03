@@ -7,6 +7,6 @@ if(isset($_SESSION['profil'])){
     //echo "session profil : " . $_SESSION['profil'];
 }
 if(isset($_GET['deco'])){
-    include('deconnect_c.php');
+    include('/connected/components/deconnect_c.php');
 }
 ?>
