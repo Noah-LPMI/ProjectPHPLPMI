@@ -54,7 +54,7 @@
                 </div>
             <?php endif; ?>
         </main>
-    </div
+            </div>
     <?php require_once(__DIR__.'/components/footer.php'); ?>
     
 </body>
