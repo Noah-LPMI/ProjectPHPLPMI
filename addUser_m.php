@@ -42,7 +42,7 @@
                         }
 
                         //on hashe le mot de passe
-                        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+                        $passwordHash = hash('md5', $password);
 
                         //on vérifie si un compte est déjà enregistré pour l'email
                         $sqlEmail = "SELECT user_id FROM users WHERE email = ?";

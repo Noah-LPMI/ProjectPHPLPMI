@@ -20,8 +20,8 @@
                     </div>
 
                     <div>
-                        <label>Lien</label>
-                        <input type='text' id='mdp' name='mdp' required />
+                        <label>Mot de passe</label>
+                        <input type='password' id='mdp' name='mdp' required />
                     </div>
                     <div>
                         <button type='submit'>Connexion</button>

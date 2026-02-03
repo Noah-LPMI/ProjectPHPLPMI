@@ -16,7 +16,7 @@
             <h1><?php echo $tableauProduit[0][1] ?> - <?php echo $tableauProduit[0][2] ?>€</h1>
             <p><?php echo $tableauProduit[0][3] ?></p>
             </br>
-            <a href='listeProduit_c.php'>Retour Liste</a>
+            <a href='index.php'>Retour Liste</a>
         </main>
     </div>
     <?php require_once(__DIR__.'/components/footer.php'); ?>

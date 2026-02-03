@@ -2,7 +2,7 @@
 if(isset($_GET['mod'])){
 include(__DIR__ . '/data/db_connection.php'); //connexion bdd
 //requête sql
-$passhash = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+$passhash = hash('md5', $_POST['mdp']);
 
 
 $sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND password = '".$passhash."'";
@@ -14,9 +14,9 @@ $sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND passwo
     $tableauSearchByID[]= [$donneesid['user_id'],$donneesid['username'],$donneesid['firstname'],$donneesid['lastname']
     ,$donneesid['email'],$donneesid['password'],$donneesid['address_street']
     ,$donneesid['address_zip_code'],$donneesid['address_country'],$donneesid['user_status']]; 
-    echo "Connexion ok";
+    //echo "Connexion ok";
     }else{
-        echo "Utilisateur introuvable";
+        echo "<script>alert('Utilisateur introuvable')</script>";
     }
 
     /*****
