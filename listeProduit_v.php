@@ -17,7 +17,7 @@
             <ul>
                 <?php
                     for($i=0;$i<count($tableauProduit);$i++){ //affichage tableau produit avec boucle for
-                        echo"<li><div class='carteProduit'><strong><a href='index.php?id=".$tableauProduit[$i][0]."'> " . $tableauProduit[$i][1] ."</a></strong>";
+                        echo"<li><div class='carteProduit'><strong><a href='ficheProduit_c.php?id=".$tableauProduit[$i][0]."'> " . $tableauProduit[$i][1] ."</a></strong>";
                         echo"<p> " . $tableauProduit[$i][2] ."€</p></div></li>";
 
                         //à déplacer dans la vue fiche détails produit (iris)
