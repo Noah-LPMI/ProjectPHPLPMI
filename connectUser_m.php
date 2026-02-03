@@ -2,7 +2,9 @@
 if(isset($_GET['mod'])){
 include(__DIR__ . '/data/db_connection.php'); //connexion bdd
 //requête sql
-$passhash = password_hash($_POST['mdp'], PASSWORD_DEFAULT); 
+$passhash = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+
+
 $sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND password = '".$passhash."'";
     $requeteid = $bd -> prepare ($sqlid);
     $requeteid->execute();
@@ -26,3 +28,4 @@ $sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND passwo
      *****/
 
 }
+
