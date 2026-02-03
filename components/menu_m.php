@@ -2,9 +2,16 @@
 
     include(__DIR__ . '/../data/db_connection.php');
 
-    $sql = "SELECT * FROM nav_bar ORDER BY `order`"; //récup info du Menu
+    $bd->beginTransaction();
 
-    $resultats=$bd->query($sql);
-    $resultats->setFetchMode(PDO::FETCH_OBJ);   
+    $sqlAdmin = "SELECT * FROM nav_bar WHERE adminOnly = 1 ORDER BY `order`"; //les backquote sont utiles car le mot order est un mot réservé
+    $menuAdmin=$bd->query($sqlAdmin);
+    $menuAdmin->setFetchMode(PDO::FETCH_OBJ);
+
+    $sql = "SELECT * FROM nav_bar WHERE adminOnly = 0 ORDER BY `order`"; //les backquote sont utiles car le mot order est un mot réservé
+    $menu=$bd->query($sql);
+    $menu->setFetchMode(PDO::FETCH_OBJ);
+
+    $bd->commit();
 
 ?>
