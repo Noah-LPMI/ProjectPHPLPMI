@@ -27,6 +27,7 @@
             
             <?php if(isset($_SESSION['user_id']) && $_SESSION['user_status']=='admin'){
                 echo "<p><a class='isBtn' href='connected/admin/deleteProduct_c.php?id=".$tableauProduit[0][0]."'>Supprimer</a></p>";
+                echo "<p><a class='isBtn' href='connected/admin/updateProduct_c.php?idprod=".$tableauProduit[0][0]."'>Modifier</a></p>";
             } ?>
             
         </main>
