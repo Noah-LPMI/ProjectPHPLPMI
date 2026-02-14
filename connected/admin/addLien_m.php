@@ -12,5 +12,5 @@
     $sql->bindParam(':admin', $_POST['admin']);
     
     $sql->execute();
-    echo"lien ajouté avec succès";
+    echo"<script>alert('lien ajouté avec succès')</script>";
     }
