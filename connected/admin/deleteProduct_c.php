@@ -1,5 +1,7 @@
-<!-- iris -->
 <?php
+
+    /***** Iris ****/
+
     session_start();
     /****************
      * TEST BOUCHON : accès avec utilisateur connecté profil admin (iris)
@@ -18,4 +20,3 @@
         header("Location: index.php"); 
         exit;
     }
-?>
