@@ -15,7 +15,7 @@
             <form method='post' action='connectUser_c.php?mod=w'>
                 <fieldset>
                     <div>
-                        <label>Nom</label>
+                        <label>Pseudo</label>
                         <input type='text' id='pseudo' name='pseudo' required />
                     </div>
 
