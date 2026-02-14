@@ -2,7 +2,7 @@
 include(__DIR__ . '/data/db_connection.php'); //connexion bdd
 $sql = "SELECT * FROM products where 1 AND product_id=".$_GET['id'].""; //récup info du produit
         if(isset($_GET['categ'])){
-            $sql=$sql+" and categorie = '".$_GET['categ']."'";
+            $sql=$sql." and categorie = '".$_GET['categ']."'";
         }
         $sql = $bd->prepare($sql);
         $sql->execute();

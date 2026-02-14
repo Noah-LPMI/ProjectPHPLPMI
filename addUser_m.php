@@ -1,6 +1,6 @@
-<!--iris-->
-
 <?php
+
+    /***** Iris ****/
     
     include(__DIR__ . '/data/db_connection.php');
 
@@ -83,4 +83,3 @@
                 $errorMessage = $e->getMessage();
             }
         }
-?>

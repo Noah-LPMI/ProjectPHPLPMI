@@ -1,10 +1,13 @@
+<!--iris-->
+
 <nav>
     <ul>
         <!-- *************
         Afficher pour tous les utilisateurs
         **************-->
         <li><a href="/ProjectPHPLPMI/index.php">Tous les produits</a></li>
-        <!-- Ajouter menu dynamique sans adminonly (0) -->
+        <li><a href="/ProjectPHPLPMI/userCart_c.php">Mon panier</a></li>
+        <!-- Menu dynamique sans adminonly (0) -->
         <?php if(isset($menu)) {
             while($ligne = $menu->fetch()) {
                 $label = htmlspecialchars($ligne->label, ENT_QUOTES, 'UTF-8');
@@ -61,4 +64,3 @@
     
     </ul>
 </nav>
-
