@@ -42,7 +42,7 @@
         Afficher pour tous les utilisateurs connectés statut admin
         **************-->
         <?php if(isset($_SESSION['user_id']) && $_SESSION['user_status'] === 'admin') : ?>
-            <li><a href="/ProjectPHPLPMI/connected/admin/addProduit_c.php">Ajouter un  produit</a></li>
+            <li><a href="/ProjectPHPLPMI/connected/admin/addProduct_c.php">Ajouter un  produit</a></li>
             <li><a href="/ProjectPHPLPMI/connected/admin/addCategorie_c.php">Ajouter une  catégorie</a></li>
             <li><a href="/ProjectPHPLPMI/connected/admin/addLien_c.php">Ajouter lien au menu</a></li>
             <!-- Ajouter menu dynamique AVEC adminonly (1) -->
