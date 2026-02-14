@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = [];
+}
+
 include('connectUser_m.php');
 include('connectUser_v.php');
 if(isset($_GET['mod'])){ //si connecté -> variable en session

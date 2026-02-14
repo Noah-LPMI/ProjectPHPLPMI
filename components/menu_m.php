@@ -1,13 +1,17 @@
 <?php
-include(__DIR__ . '/../data/db_connection.php');
-$sql = "SELECT * FROM nav_bar ORDER BY `order`"; //récup info du Menu
-        $sql = $bd->prepare($sql);
-        $sql->execute();
-        $donneesMenu = $sql->fetchall(PDO::FETCH_ASSOC);
-        $tableauMenu= array(); //tableau de menu
-        if($donneesMenu != NULL){
-            for($i=0;$i<count($donneesMenu);$i++){ //boucle for recup menu et remplissage tableau      
-            $tableauMenu[]= [$donneesMenu[$i]['navBar_id'],$donneesMenu[$i]['links'],
-            $donneesMenu[$i]['label'],$donneesMenu[$i]['filter'],$donneesMenu[$i]['adminOnly']];
-            } 
-        }    
+
+    /***** Iris ****/
+
+    include(__DIR__ . '/../data/db_connection.php');
+
+    $bd->beginTransaction();
+
+    $sqlAdmin = "SELECT * FROM nav_bar WHERE adminOnly = 1 ORDER BY `order`"; //les backquote sont utiles car le mot order est un mot réservé
+    $menuAdmin=$bd->query($sqlAdmin);
+    $menuAdmin->setFetchMode(PDO::FETCH_OBJ);
+
+    $sql = "SELECT * FROM nav_bar WHERE adminOnly = 0 ORDER BY `order`"; //les backquote sont utiles car le mot order est un mot réservé
+    $menu=$bd->query($sql);
+    $menu->setFetchMode(PDO::FETCH_OBJ);
+
+    $bd->commit();

@@ -1,4 +1,9 @@
 <?php
+
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] = [];
+} 
+
 if(isset($_GET['mod'])){
 include(__DIR__ . '/data/db_connection.php'); //connexion bdd
 //requête sql
@@ -28,4 +33,3 @@ $sqlid = "SELECT * FROM users WHERE username = '".$_POST['pseudo']."' AND passwo
      *****/
 
 }
-

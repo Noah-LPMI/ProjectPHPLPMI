@@ -12,14 +12,25 @@
         <?php require_once(__DIR__.'/components/header.php'); ?>
 
         <main>
-            </br>
-            <h1><?php echo $tableauProduit[0][1] ?> - <?php echo $tableauProduit[0][2] ?>€</h1>
-            <p><?php echo $tableauProduit[0][3] ?></p>
-            </br>
-            <a href='index.php'>Retour Liste</a>
+            
+            <h1><?php echo $tableauProduit[0][1] ?></h1>
+            <p><a class="isBtn" href='index.php'>Retour</a></p>
+            <div class="flex detailsProduit">
+                <figure>
+                    <img src="https://dummyimage.com/300x200/4f224f/fff" alt="image du produit"></img>
+                </figure>
+                <div>
+                    <p><?php echo $tableauProduit[0][2] ?>€</p>
+                    <p><?php echo $tableauProduit[0][3] ?></p>
+                </div>
+            </div>
+            
+            <?php if(isset($_SESSION['user_id']) && $_SESSION['user_status']=='admin'){ ?>
+                <p><a class="isBtn" href='connected/admin/deleteProduct_c.php?id=".$tableauProduit[$i][0]."'>Supprimer</a></p>
+            <?php } ?>
+            
         </main>
     </div>
     <?php require_once(__DIR__.'/components/footer.php'); ?>
 </body>
 </html>
-

@@ -13,23 +13,47 @@
     <div class="flex">
     <?php require_once(__DIR__.'/components/header.php'); ?>
         <main>
-            <h1>Liste Produit</h1>
+            <h1>Notre catalogue de produits</h1>
             <ul>
                 <?php
-                    for($i=0;$i<count($tableauProduit);$i++){ //affichage tableau produit avec boucle for
-                        echo"<li><div class='carteProduit'><strong><a href='ficheProduit_c.php?id=".$tableauProduit[$i][0]."'> " . $tableauProduit[$i][1] ."</a></strong>";
-                        echo"<p> " . $tableauProduit[$i][2] ."€</p></div></li>";
-
-                        //à déplacer dans la vue fiche détails produit (iris)
-                        if(isset($_SESSION['profil']) && $_SESSION['profil']=='admin'){
-                            echo "<li><a href='connected/admin/deleteProduct_c.php?id=".$tableauProduit[$i][0]."'>Supprimer</a>";
-                        }
-                    }
-                ?>
+                    for($i=0;$i<count($tableauProduit);$i++){ ?><!--affichage tableau produit avec boucle for-->
+                        <li class='carteProduit'><a class='isBold' href='ficheProduit_c.php?id=<?= $tableauProduit[$i][0] ?>'> <?= $tableauProduit[$i][1]?></a> <!-- nom et lien vers fiche grâce à id -->
+                            <p><?= $tableauProduit[$i][2] ?>€</p> <!--prix-->
+                            <div class="panier-zone" data-id="<?= $tableauProduit[$i][0] ?>">
+                                <button class="btn-ajout">Ajouter au panier</button>
+                                <span class="quantite">
+                                    <?= $_SESSION['panier'][$tableauProduit[$i][0]] ?? 0 ?>
+                                </span>
+                            </div>
+                        </li>
+                <?php } ?>
             </ul>
         </main>
     </div>
     <?php require_once(__DIR__.'/components/footer.php'); ?>
+    <script>
+        document.querySelectorAll('.btn-ajout').forEach(button => {
+            button.addEventListener('click', function() {
+
+                let parent = this.closest('.panier-zone');
+                let produitId = parent.dataset.id;
+
+                fetch('addToCart_c.php', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: 'id=' + produitId
+                })
+                .then(response => response.json())
+                .then(data => {
+
+                    parent.querySelector('.quantite').textContent = data.quantite;
+
+                    this.textContent = "+";
+                });
+            });
+        });
+    </script>
+
 </body>
 
 </html>

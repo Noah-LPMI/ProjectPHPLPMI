@@ -1,29 +1,66 @@
+<!--iris-->
+
 <nav>
     <ul>
+        <!-- *************
+        Afficher pour tous les utilisateurs
+        **************-->
         <li><a href="/ProjectPHPLPMI/index.php">Tous les produits</a></li>
-        <!--<li><a href="search_c.php">Recherche</a></li>
-        <li><a href="addProduit_c.php">Ajout produit</a></li>-->
-        <li><a href="/ProjectPHPLPMI/connected/admin/addLien_c.php">Ajout Menu</a></li>
-        <li><a href="/ProjectPHPLPMI/connectUser_c.php">Se connecter</a></li>
-        <li><a href="/ProjectPHPLPMI/addUser_c.php">Créer un compte</a></li>
-        <!--<li><a href="addCateg_c.php">Ajout Categorie</a></li>-->
-        
-        <?php
-            if(isset($_SESSION['user_id'])){ //test si connecté
-                echo"<li><a href='/ProjectPHPLPMI/index.php?deco=1'>deconnexion</a></li>";
-                for($i=0;$i<count($tableauMenu);$i++){//0=id, 1=lien, 2=nom//
-                    if($_SESSION['user_status']!='admin' && $tableauMenu[$i][4]==1){ //si pas user=pas admin et liens (adminOnly) = 1
+        <li><a href="/ProjectPHPLPMI/userCart_c.php">Mon panier</a></li>
+        <!-- Menu dynamique sans adminonly (0) -->
+        <?php if(isset($menu)) {
+            while($ligne = $menu->fetch()) {
+                $label = htmlspecialchars($ligne->label, ENT_QUOTES, 'UTF-8');
+                $link = htmlspecialchars($ligne->links, ENT_QUOTES, 'UTF-8');
+                $filter = htmlspecialchars($ligne->filter, ENT_QUOTES, 'UTF-8');
 
-                    }else{
-                        echo"<li><a href='".$tableauMenu[$i][1]."?".$tableauMenu[$i][3]."'>".$tableauMenu[$i][2]."</a></li>"; //sinon afficher le liens
-                    }
+                $url = "/ProjectPHPLPMI/$link";
+                if (!empty($filter)) {
+                    $url .= '?' . $filter;
                 }
-            }else{ //si pas connecté affiche tout
-                        //echo"<li><a href='".$tableauMenu[$i][1]."?".$tableauMenu[$i][3]."'>".$tableauMenu[$i][2]."</a></li>";   
+
+                echo "<li><a href='$url'>$label</a></li>";
             }
-        ?>
+        } ?>
+
+        <!-- *************
+        Afficher pour tous les utilisateurs non connectés
+        **************-->
+        <?php if(!isset($_SESSION['user_id'])) : ?>
+            <li><a href="/ProjectPHPLPMI/connectUser_c.php">Se connecter</a></li>
+            <li><a href="/ProjectPHPLPMI/addUser_c.php">Créer un compte</a></li>
+        <?php endif; ?>
+        
+        <!-- *************
+        Afficher pour tous les utilisateurs connectés
+        **************-->
+        <?php if(isset($_SESSION['user_id'])) : ?>
+            <li><a href='/ProjectPHPLPMI/index.php?deco=1'>deconnexion</a></li>
+        <?php endif; ?>
+
+        <!-- *************
+        Afficher pour tous les utilisateurs connectés statut admin
+        **************-->
+        <?php if(isset($_SESSION['user_id']) && $_SESSION['user_status'] === 'admin') : ?>
+            <li><a href="/ProjectPHPLPMI/connected/admin/addProduit_c.php">Ajouter un  produit</a></li>
+            <li><a href="/ProjectPHPLPMI/connected/admin/addCategorie_c.php">Ajouter une  catégorie</a></li>
+            <li><a href="/ProjectPHPLPMI/connected/admin/addLien_c.php">Ajouter lien au menu</a></li>
+            <!-- Ajouter menu dynamique AVEC adminonly (1) -->
+            <?php if(isset($menuAdmin)) {
+            while($ligne = $menuAdmin->fetch()) {
+                $labelAdmin = htmlspecialchars($ligne->label, ENT_QUOTES, 'UTF-8');
+                $linkAdmin = htmlspecialchars($ligne->links, ENT_QUOTES, 'UTF-8');
+                $filterAdmin = htmlspecialchars($ligne->filter, ENT_QUOTES, 'UTF-8');
+
+                 $url = "/ProjectPHPLPMI/$linkAdmin";
+                if (!empty($filterAdmin)) {
+                    $url .= '?' . $filterAdmin;
+                }
+
+                echo "<li><a href='/ProjectPHPLPMI/$url'>$labelAdmin</a></li>";
+            }
+        } ?>
+        <?php endif; ?>
+    
     </ul>
 </nav>
-
-<!--listeProduit_c.php?filtre=-->
-
