@@ -36,8 +36,10 @@
                     <input type='number' id='ordre' name='ordre' required />
                 </div>
                 <div>
-                    <label>Admin 1 or 0</label>
-                    <input type='number' id='admin' name='admin' required />
+                <input type="radio" id="no" name="admin" value="0" checked />
+                <label for="no">Utilisateur</label>
+                <input type="radio" id="ok" name="admin" value="1"/>
+                <label for="ok">Admin</label>
                 </div>
                 <div>
                     <button type='submit'>Ajouter Lien</button>

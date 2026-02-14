@@ -13,3 +13,6 @@ if(isset($_SESSION['profil'])){
 if(isset($_GET['deco'])){
     include(__DIR__.'/connected/components/deconnect_c.php');
 }
+if(isset($_GET['supp'])){
+    echo "<script>alert('Produit supprimer avec succès')</script>";
+}

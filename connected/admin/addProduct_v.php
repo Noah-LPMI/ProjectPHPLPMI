@@ -1,3 +1,14 @@
+<link rel="stylesheet" href="../../styles/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/style.css">
+    <title>Ajouter un Produit</title>
+</head>
+<body>
+    <div class='flex'>
+    <?php require_once(__DIR__.'/../../components/header.php'); ?>
+    <main>
 <form action='addProduct_c.php?mod=w' method='post'>
     <div>
     <label>Nom Produit</label>
@@ -29,13 +40,18 @@
     
 
     <div>
+    <label>En Stock : </label>    
     <input type="radio" id="no" name="instock" value="0" checked />
-    <label for="no">no</label>
+    <label for="no">non</label>
     <input type="radio" id="ok" name="instock" value="1"/>
-    <label for="ok">yes</label>
+    <label for="ok">oui</label>
     </div>
 
     <div>
-    <button type='submit'>Ajouter Lien</button>
+    <button type='submit'>Ajouter</button>
     </div>
 </form>
+</main>
+</div>
+<?php require_once(__DIR__.'/../../components/footer.php'); ?>
+</body>
