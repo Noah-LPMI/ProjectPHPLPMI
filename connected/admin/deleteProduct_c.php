@@ -6,9 +6,9 @@
     /****************
      * TEST BOUCHON : accès avec utilisateur connecté profil admin (iris)
      ****************/
-    $_SESSION["user_id"] = 1;
-    $_SESSION["username"] = "testAdmin";
-    $_SESSION["user_status"] = "admin";
+    // $_SESSION["user_id"] = 1;
+    // $_SESSION["username"] = "testAdmin";
+    // $_SESSION["user_status"] = "admin";
     /****************
      * FIN TEST
      ****************/
