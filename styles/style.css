@@ -1,0 +1,79 @@
+/******* RESET *********/
+body,h1,h2,a,nav,ul,li, figure,img{
+    margin:0;
+    padding:0;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/******* DISPLAY *********/
+.flex{
+    display: flex;
+    gap: 1rem;
+}
+
+main{
+    width:80%;
+    padding : 2rem;
+}
+
+header{
+    width: fit-content;
+    max-width: 20%;
+    padding : 1rem;
+}
+
+h1 {
+    margin-bottom: 2rem;
+}
+
+.carteProduit {
+    border-bottom : 0.5px solid lightgrey;
+    margin-bottom : 0.5rem;
+}
+
+footer {
+    padding : 1rem;
+}
+
+
+/******* DECORATION **********/
+header {
+    border-right: 2px dashed rgb(174, 24, 24);
+}
+
+nav a:hover {
+    background-color : rgba(174, 24, 24, 0.386);
+}
+
+.isBtn {
+    border : 1px solid grey;
+    padding : 0.1rem 0.2rem;
+    margin: 0.2rem;
+    background-color: rgb(230, 230, 230);
+}
+
+.isBold {
+    font-weight: bold;
+}
+
+footer{
+    background-color: rgb(174, 24, 24);
+}
+
+footer a {
+    color: white;
+}
+
+
+
+
+
+
